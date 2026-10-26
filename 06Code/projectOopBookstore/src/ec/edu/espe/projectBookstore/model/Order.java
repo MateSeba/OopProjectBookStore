@@ -11,7 +11,7 @@ public class Order {
 
     private int id;
     private Date orderDate;
-    private List<Object> details; // You can replace Object with OrderDetail if the class exists.
+    private List<Object> details; 
     private float total;
     private Address shippingAddress;
     private String status;
