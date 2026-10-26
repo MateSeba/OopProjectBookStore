@@ -99,4 +99,13 @@ public class OrderDetail {
         return "OrderDetail{book=" + (book != null ? book.getTitle() : "N/A")
                 + ", quantity=" + quantity + ", unitPrice=" + unitPrice + ", subTotal=" + subTotal + "}";
     }
+    
+    public float calculateSubTotal() {
+        this.subTotal = quantity * unitPrice;
+        return this.subTotal;
+    }
+
+    public void updateQuantity(int newQuantity) {
+        setQuantity(newQuantity);
+    }
 }

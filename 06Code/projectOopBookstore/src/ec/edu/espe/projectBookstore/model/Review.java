@@ -1,6 +1,7 @@
 package ec.edu.espe.projectBookstore.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -107,8 +108,22 @@ public class Review {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-
-    @Override
+    
+    public void postReview(List<Review> reviews) {
+        if (score < 1 || score > 5) {
+            throw new IllegalArgumentException("The score must be between 1 and 5");
+            }
+        if (comment == null || comment.trim().isEmpty()) {
+            throw new IllegalArgumentException("The comment cannot be empty");
+        }
+        if (book == null || customer == null) {
+            throw new IllegalArgumentException("The review needs a book and a customer");
+        }
+        this.date = new Date();
+        reviews.add(this);
+    }
+    
+        @Override
     public String toString() {
         return "Review{" + "id=" + id + ", score=" + score + ", comment=" + comment + ", date=" + date + ", book=" + book + ", customer=" + customer + '}';
     }

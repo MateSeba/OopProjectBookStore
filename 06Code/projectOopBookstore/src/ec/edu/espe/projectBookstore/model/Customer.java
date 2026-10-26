@@ -1,5 +1,7 @@
 package ec.edu.espe.projectBookstore.model;
 
+import java.util.List;
+
 /**
  * @author Andres
  */
@@ -23,7 +25,8 @@ public class Customer {
         setPassword(password);
         setAddress(address);
     }
-
+    
+    
     /**
      * @return the id
      */
@@ -136,4 +139,31 @@ public class Customer {
         return "Customer{id=" + id + ", name=" + name + ", email=" + email
                 + ", phone=" + phone + ", age=" + age + ", address=" + address + "}";
     }
+    
+    public boolean register(List<Customer> customers) {
+        if (customers == null) {
+            throw new IllegalArgumentException("The customers list is invalid");
+        }
+        for (Customer customer : customers) {
+            if (customer.getEmail().equalsIgnoreCase(this.email)) {
+                return false;
+            }
+        }
+        customers.add(this);
+        return true;
+    }
+    
+    public static Customer login(List<Customer> customers, String email, String password) {
+    if (customers == null || email == null || password == null) {
+        return null;
+    }
+    for (Customer customer : customers) {
+        if (customer.getEmail().equalsIgnoreCase(email.trim()) && customer.getPassword().equals(password)) {
+            return customer;
+            }
+    }
+    return null;
+    }
+    
 }
+

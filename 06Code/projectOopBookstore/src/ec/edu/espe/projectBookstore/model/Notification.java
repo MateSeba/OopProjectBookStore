@@ -92,6 +92,16 @@ public class Notification {
         this.read = read;
     }
 
+    public void sendNotification() {
+        this.sentDate = new Date();
+        this.read = false;
+        System.out.println("Notification sent to " + customer.getName() + ": " + message);
+    }
+    
+    public void markAsRead() {
+    this.read = true;
+    }
+    
     @Override
     public String toString() {
         return "Notification{id=" + id + ", message=" + message + ", read=" + read + "}";
