@@ -40,23 +40,89 @@ public class Payment {
         System.out.println("Receipt generated for payment ID: " + id);
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
 
-    public float getAmount() { return amount; }
-    public void setAmount(float amount) { this.amount = amount; }
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public Date getPaymentDate() { return paymentDate; }
-    public void setPaymentDate(Date paymentDate) { this.paymentDate = paymentDate; }
+    /**
+     * @return the amount
+     */
+    public float getAmount() {
+        return amount;
+    }
 
-    public String getPaymentMethod() { return paymentMethod; }
-    public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
+    /**
+     * @param amount the amount to set
+     */
+    public void setAmount(float amount) {
+        this.amount = amount;
+    }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    /**
+     * @return the paymentDate
+     */
+    public Date getPaymentDate() {
+        return paymentDate;
+    }
 
-    public String getReferenceNumber() { return referenceNumber; }
-    public void setReferenceNumber(String referenceNumber) { this.referenceNumber = referenceNumber; }
+    /**
+     * @param paymentDate the paymentDate to set
+     */
+    public void setPaymentDate(Date paymentDate) {
+        this.paymentDate = paymentDate;
+    }
+
+    /**
+     * @return the paymentMethod
+     */
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    /**
+     * @param paymentMethod the paymentMethod to set
+     */
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    /**
+     * @return the referenceNumber
+     */
+    public String getReferenceNumber() {
+        return referenceNumber;
+    }
+
+    /**
+     * @param referenceNumber the referenceNumber to set
+     */
+    public void setReferenceNumber(String referenceNumber) {
+        this.referenceNumber = referenceNumber;
+    }
 
     @Override
     public String toString() {

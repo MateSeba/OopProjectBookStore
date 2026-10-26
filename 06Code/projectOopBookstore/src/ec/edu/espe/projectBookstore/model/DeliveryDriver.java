@@ -26,7 +26,7 @@ public class DeliveryDriver {
     }
 
     public float calculateCost() {
-        return 5.0f; 
+        return 5.0f;
     }
 
     public void seeLocation() {
@@ -35,23 +35,89 @@ public class DeliveryDriver {
         }
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getVehiclePlate() { return vehiclePlate; }
-    public void setVehiclePlate(String vehiclePlate) { this.vehiclePlate = vehiclePlate; }
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
 
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) { this.phone = phone; }
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    /**
+     * @return the vehiclePlate
+     */
+    public String getVehiclePlate() {
+        return vehiclePlate;
+    }
 
-    public Address getCurrentLocation() { return currentLocation; }
-    public void setCurrentLocation(Address currentLocation) { this.currentLocation = currentLocation; }
+    /**
+     * @param vehiclePlate the vehiclePlate to set
+     */
+    public void setVehiclePlate(String vehiclePlate) {
+        this.vehiclePlate = vehiclePlate;
+    }
+
+    /**
+     * @return the phone
+     */
+    public String getPhone() {
+        return phone;
+    }
+
+    /**
+     * @param phone the phone to set
+     */
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    /**
+     * @return the currentLocation
+     */
+    public Address getCurrentLocation() {
+        return currentLocation;
+    }
+
+    /**
+     * @param currentLocation the currentLocation to set
+     */
+    public void setCurrentLocation(Address currentLocation) {
+        this.currentLocation = currentLocation;
+    }
 
     @Override
     public String toString() {

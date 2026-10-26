@@ -25,17 +25,61 @@ public class Address {
         System.out.println("Fetching coordinates for address: " + getFormattedAddress());
     }
 
-    public String getMainStreet() { return mainStreet; }
-    public void setMainStreet(String mainStreet) { this.mainStreet = mainStreet; }
+    /**
+     * @return the mainStreet
+     */
+    public String getMainStreet() {
+        return mainStreet;
+    }
 
-    public String getSecondaryStreet() { return secondaryStreet; }
-    public void setSecondaryStreet(String secondaryStreet) { this.secondaryStreet = secondaryStreet; }
+    /**
+     * @param mainStreet the mainStreet to set
+     */
+    public void setMainStreet(String mainStreet) {
+        this.mainStreet = mainStreet;
+    }
 
-    public String getSector() { return sector; }
-    public void setSector(String sector) { this.sector = sector; }
+    /**
+     * @return the secondaryStreet
+     */
+    public String getSecondaryStreet() {
+        return secondaryStreet;
+    }
 
-    public String getReference() { return reference; }
-    public void setReference(String reference) { this.reference = reference; }
+    /**
+     * @param secondaryStreet the secondaryStreet to set
+     */
+    public void setSecondaryStreet(String secondaryStreet) {
+        this.secondaryStreet = secondaryStreet;
+    }
+
+    /**
+     * @return the sector
+     */
+    public String getSector() {
+        return sector;
+    }
+
+    /**
+     * @param sector the sector to set
+     */
+    public void setSector(String sector) {
+        this.sector = sector;
+    }
+
+    /**
+     * @return the reference
+     */
+    public String getReference() {
+        return reference;
+    }
+
+    /**
+     * @param reference the reference to set
+     */
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
 
     @Override
     public String toString() {

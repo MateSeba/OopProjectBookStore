@@ -30,20 +30,75 @@ public class DeliveryAssignment {
         this.status = "Completed";
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
 
-    public Order getOrder() { return order; }
-    public void setOrder(Order order) { this.order = order; }
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public DeliveryDriver getDriver() { return driver; }
-    public void setDriver(DeliveryDriver driver) { this.driver = driver; }
+    /**
+     * @return the order
+     */
+    public Order getOrder() {
+        return order;
+    }
 
-    public Date getDispatchTime() { return dispatchTime; }
-    public void setDispatchTime(Date dispatchTime) { this.dispatchTime = dispatchTime; }
+    /**
+     * @param order the order to set
+     */
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    /**
+     * @return the driver
+     */
+    public DeliveryDriver getDriver() {
+        return driver;
+    }
+
+    /**
+     * @param driver the driver to set
+     */
+    public void setDriver(DeliveryDriver driver) {
+        this.driver = driver;
+    }
+
+    /**
+     * @return the dispatchTime
+     */
+    public Date getDispatchTime() {
+        return dispatchTime;
+    }
+
+    /**
+     * @param dispatchTime the dispatchTime to set
+     */
+    public void setDispatchTime(Date dispatchTime) {
+        this.dispatchTime = dispatchTime;
+    }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     @Override
     public String toString() {
