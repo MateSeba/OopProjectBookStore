@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "id": 1,
+    "amount": 73.99,
+    "date": 1792491300000,
+    "paymentMethod": "Tarjeta",
+    "status": "Completed",
+    "referenceNumber": "REF-1"
+  },
+  {
+    "id": 2,
+    "amount": 81.0,
+    "date": 1792595700000,
+    "paymentMethod": "Efectivo",
+    "status": "Completed",
+    "referenceNumber": "REF-2"
+  },
+  {
+    "id": 3,
+    "amount": 108.5,
+    "date": 1792660500000,
+    "paymentMethod": "Transferencia",
+    "status": "Completed",
+    "referenceNumber": "REF-3"
+  },
+  {
+    "id": 4,
+    "amount": 69.8,
+    "date": 1792775700000,
+    "paymentMethod": "Tarjeta",
+    "status": "Completed",
+    "referenceNumber": "REF-4"
+  },
+  {
+    "id": 5,
+    "amount": 89.25,
+    "date": 1792926900000,
+    "paymentMethod": "Efectivo",
+    "status": "Completed",
+    "referenceNumber": "REF-5"
+  },
+  {
+    "id": 6,
+    "amount": 104.5,
+    "date": 1793110500000,
+    "paymentMethod": "Tarjeta",
+    "status": "Completed",
+    "referenceNumber": "REF-6"
+  }
+]

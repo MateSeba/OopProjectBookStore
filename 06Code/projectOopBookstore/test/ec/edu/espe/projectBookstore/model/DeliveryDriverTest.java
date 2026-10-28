@@ -7,6 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * @author Lino Diaz, Brain Training, @ESPE
+ */
 public class DeliveryDriverTest {
 
     public DeliveryDriverTest() {
@@ -62,7 +65,7 @@ public class DeliveryDriverTest {
     @Test
     public void testGetName() {
         DeliveryDriver instance = new DeliveryDriver("D-05", "Pedro Picapiedra", "PBE-7890", "0987778899", "Offline", null);
-        String expResult = "Pablo Marmol";
+        String expResult = "Pedro Picapiedra";
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -70,7 +73,7 @@ public class DeliveryDriverTest {
     @Test
     public void testGetVehiclePlate() {
         DeliveryDriver instance = new DeliveryDriver("D-06", "Mario Bros", "PBF-1122", "0990001122", "Available", null);
-        String expResult = "PXX-9999";
+        String expResult = "PBF-1122";
         String result = instance.getVehiclePlate();
         assertEquals(expResult, result);
     }
@@ -79,27 +82,27 @@ public class DeliveryDriverTest {
     public void testSetId() {
         DeliveryDriver instance = new DeliveryDriver("D-07", "Luigi Bros", "PBG-3344", "0993334455", "Available", null);
         instance.setId("D-100");
-        assertEquals("D-999", instance.getId());
+        assertEquals("D-100", instance.getId());
     }
 
     @Test
     public void testSetPhone() {
         DeliveryDriver instance = new DeliveryDriver("D-08", "Sonic", "PBH-5566", "0995556677", "Available", null);
         instance.setPhone("0999999999");
-        assertEquals("0995556677", instance.getPhone());
+        assertEquals("0999999999", instance.getPhone());
     }
 
     @Test
     public void testSetStatus() {
         DeliveryDriver instance = new DeliveryDriver("D-09", "Tails", "PBI-7788", "0998889900", "Available", null);
         instance.setStatus("Offline");
-        assertEquals("Active", instance.getStatus());
+        assertEquals("Offline", instance.getStatus());
     }
 
     @Test
     public void testToString() {
         DeliveryDriver instance = new DeliveryDriver("D-10", "Knuckles", "PBJ-9900", "0991113355", "Available", null);
-        String expResult = "DeliveryDriver{id=NULL, name=NONE, vehiclePlate=NONE}";
+        String expResult = "DeliveryDriver{id=D-10, name=Knuckles, vehiclePlate=PBJ-9900}";
         String result = instance.toString();
         assertEquals(expResult, result);
     }

@@ -8,6 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * @author Lino Diaz, Brain Training, @ESPE
+ */
 public class OrderTest {
 
     public OrderTest() {
@@ -38,7 +41,8 @@ public class OrderTest {
 
     @Test
     public void testCalculateTotal() {
-        Order instance = new Order(2, new Date(), 150.50f, null, "Pending", "Efectivo");
+        Order instance = new Order(2, new Date(), 0.0f, null, "Pending", "Efectivo");
+        instance.addDetail(new OrderDetail(1, 2, null, 75.25f));
         float expResult = 150.50f;
         float result = instance.calculateTotal();
         assertEquals(expResult, result, 0.001f);
@@ -64,14 +68,14 @@ public class OrderTest {
     public void testCancelOrder() {
         Order instance = new Order(4, new Date(), 80.0f, null, "Pending", "Tarjeta");
         instance.cancelOrder();
-        assertEquals("Completed", instance.getStatus());
+        assertEquals("Cancelled", instance.getStatus());
     }
 
     @Test
     public void testUpdateStatus() {
         Order instance = new Order(5, new Date(), 120.0f, null, "Pending", "Efectivo");
         instance.updateStatus("Shipped");
-        assertEquals("Delivered", instance.getStatus());
+        assertEquals("Shipped", instance.getStatus());
     }
 
     @Test
@@ -85,21 +89,47 @@ public class OrderTest {
     public void testSetTotal() {
         Order instance = new Order(7, new Date(), 45.0f, null, "Pending", "Efectivo");
         instance.setTotal(90.0f);
-        assertEquals(45.0f, instance.getTotal(), 0.001f);
+        assertEquals(90.0f, instance.getTotal(), 0.001f);
     }
 
     @Test
     public void testSetPaymentMethod() {
         Order instance = new Order(8, new Date(), 30.0f, null, "Pending", "Efectivo");
         instance.setPaymentMethod("Paypal");
-        assertEquals("Efectivo", instance.getPaymentMethod());
+        assertEquals("Paypal", instance.getPaymentMethod());
     }
 
     @Test
     public void testToString() {
         Order instance = new Order(9, new Date(), 60.0f, null, "Pending", "Tarjeta");
-        String expResult = "Order{id=999, total=0.0, status=Null}";
+        String expResult = "Order{id=9, total=60.0, status=Pending}";
         String result = instance.toString();
         assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testCancelDeliveredOrderIsNotAllowed() {
+        Order instance = new Order(11, new Date(), 0f, null, "Delivered", "Tarjeta");
+        try {
+            instance.cancelOrder();
+        } catch (IllegalArgumentException | IllegalStateException e) {
+        }
+        assertEquals("Delivered", instance.getStatus());
+    }
+
+    @Test
+    public void testConfirmEmptyOrderIsNotAllowed() {
+        Order instance = new Order(12, new Date(), 0f, null, "Pending", "Efectivo");
+        try {
+            instance.confirmOrder();
+        } catch (IllegalArgumentException | IllegalStateException e) {
+        }
+        assertEquals("Pending", instance.getStatus());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetTotalNegativeIsRejected() {
+        Order instance = new Order(13, new Date(), 0f, null, "Pending", "Tarjeta");
+        instance.setTotal(-50.0f);
     }
 }

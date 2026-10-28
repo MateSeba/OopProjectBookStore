@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Editorial Planeta",
+    "description": "Publicaciones generales"
+  },
+  {
+    "id": 2,
+    "name": "Penguin Random House",
+    "description": "Literatura y ficción"
+  },
+  {
+    "id": 3,
+    "name": "Alfaguara",
+    "description": "Novela contemporánea"
+  },
+  {
+    "id": 4,
+    "name": "Santillana",
+    "description": "Textos educativos"
+  }
+]

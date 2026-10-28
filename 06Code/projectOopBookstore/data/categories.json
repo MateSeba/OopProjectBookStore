@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Ficción",
+    "description": "Novela y narrativa"
+  },
+  {
+    "id": 2,
+    "name": "Cuento",
+    "description": "Relatos y cuentos cortos"
+  },
+  {
+    "id": 3,
+    "name": "Ciencia",
+    "description": "Textos divulgativos y científicos"
+  },
+  {
+    "id": 4,
+    "name": "Historia",
+    "description": "Libros sobre acontecimientos históricos"
+  },
+  {
+    "id": 5,
+    "name": "Poesía",
+    "description": "Colecciones de obras poéticas"
+  }
+]

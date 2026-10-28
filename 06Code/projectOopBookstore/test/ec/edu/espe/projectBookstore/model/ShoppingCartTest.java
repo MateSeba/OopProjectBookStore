@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 package ec.edu.espe.projectBookstore.model;
 
 import java.util.Date;
@@ -50,10 +46,7 @@ public class ShoppingCartTest {
         cart.addBook(book1, 2);
         assertEquals(1, cart.getItems().size());
     }
- 
-    /**
-     * Test of addBook method with the same book twice, of class ShoppingCart.
-     */
+
     @Test
     public void testAddBookSameBookTwice() {
         System.out.println("addBookSameBookTwice");
@@ -62,10 +55,7 @@ public class ShoppingCartTest {
         assertEquals(1, cart.getItems().size());
         assertEquals(5, cart.getItems().get(0).getQuantity());
     }
- 
-    /**
-     * Test of calculateSubtotal method, of class ShoppingCart.
-     */
+
     @Test
     public void testCalculateSubtotal() {
         System.out.println("calculateSubtotal");
@@ -73,10 +63,7 @@ public class ShoppingCartTest {
         cart.addBook(book2, 1);
         assertEquals(40.0f, cart.calculateSubtotal(), 0.001f);
     }
- 
-    /**
-     * Test of removeBook method, of class ShoppingCart.
-     */
+
     @Test
     public void testRemoveBook() {
         System.out.println("removeBook");
@@ -84,20 +71,14 @@ public class ShoppingCartTest {
         assertTrue(cart.removeBook(book1));
         assertTrue(cart.getItems().isEmpty());
     }
- 
-    /**
-     * Test of removeBook method with a book that is not in the cart, of class ShoppingCart.
-     */
+
     @Test
     public void testRemoveBookNotInCart() {
         System.out.println("removeBookNotInCart");
         cart.addBook(book1, 2);
         assertFalse(cart.removeBook(book2));
     }
- 
-    /**
-     * Test of clearShoppingCart method, of class ShoppingCart.
-     */
+
     @Test
     public void testClearShoppingCart() {
         System.out.println("clearShoppingCart");
@@ -106,46 +87,38 @@ public class ShoppingCartTest {
         assertTrue(cart.getItems().isEmpty());
         assertEquals(0.0f, cart.getSubTotal(), 0.001f);
     }
- 
-    /**
-     * Test of updateStock method without enough stock, of class ShoppingCart.
-     */
+
     @Test(expected = IllegalArgumentException.class)
     public void testUpdateStockNotEnough() {
         System.out.println("updateStockNotEnough");
         cart.addBook(book2, 2);
         cart.updateStock();
     }
-  
-    /**
-     * Test of addBook method (subtotal), of class ShoppingCart.
-     */
+
     @Test
     public void testAddBookSubtotal() {
         System.out.println("addBookSubtotal");
         cart.addBook(book1, 2);
-        assertEquals(10.0f, cart.getSubTotal(), 0.001f);
+        assertEquals(20.0f, cart.getSubTotal(), 0.001f);
     }
- 
-    /**
-     * Test of getContent method with an empty cart, of class ShoppingCart.
-     */
+
     @Test
     public void testGetContentEmpty() {
         System.out.println("getContentEmpty");
-        assertEquals("Cart is empty", cart.getContent());
+        assertEquals("The shopping cart is empty", cart.getContent());
     }
- 
-    /**
-     * Test of updateStock method, of class ShoppingCart.
-     */
+
     @Test
     public void testUpdateStock() {
         System.out.println("updateStock");
         cart.addBook(book1, 3);
         cart.updateStock();
-        assertEquals(10, book1.getStock());
+        assertEquals(7, book1.getStock());
     }
- 
+
+    @Test
+    public void testRemoveNullBookReturnsFalse() {
+        cart.addBook(book1, 1);
+        assertFalse(cart.removeBook(null));
+    }
 }
- 

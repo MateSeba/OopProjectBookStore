@@ -1,1 +1,134 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Cien años de soledad",
+    "isbn": "978-0307474728",
+    "price": 25.5,
+    "stock": 10,
+    "description": "Realismo mágico",
+    "authorId": 1,
+    "publisherId": 2,
+    "categoryId": 1
+  },
+  {
+    "id": 2,
+    "title": "El amor en los tiempos del cólera",
+    "isbn": "978-0307389732",
+    "price": 22.0,
+    "stock": 7,
+    "description": "Novela de amor",
+    "authorId": 1,
+    "publisherId": 2,
+    "categoryId": 1
+  },
+  {
+    "id": 3,
+    "title": "La ciudad y los perros",
+    "isbn": "978-8420471839",
+    "price": 20.0,
+    "stock": 5,
+    "description": "Novela de formación",
+    "authorId": 2,
+    "publisherId": 3,
+    "categoryId": 1
+  },
+  {
+    "id": 4,
+    "title": "Conversación en La Catedral",
+    "isbn": "978-8466329033",
+    "price": 24.9,
+    "stock": 3,
+    "description": "Novela política",
+    "authorId": 2,
+    "publisherId": 3,
+    "categoryId": 1
+  },
+  {
+    "id": 5,
+    "title": "La casa de los espíritus",
+    "isbn": "978-8401337208",
+    "price": 21.75,
+    "stock": 6,
+    "description": "Saga familiar",
+    "authorId": 3,
+    "publisherId": 1,
+    "categoryId": 1
+  },
+  {
+    "id": 6,
+    "title": "Ficciones",
+    "isbn": "978-8420633114",
+    "price": 19.0,
+    "stock": 5,
+    "description": "Cuentos",
+    "authorId": 4,
+    "publisherId": 3,
+    "categoryId": 2
+  },
+  {
+    "id": 7,
+    "title": "El Aleph",
+    "isbn": "978-8420633121",
+    "price": 18.5,
+    "stock": 1,
+    "description": "Cuentos",
+    "authorId": 4,
+    "publisherId": 3,
+    "categoryId": 2
+  },
+  {
+    "id": 8,
+    "title": "Rayuela",
+    "isbn": "978-8437604572",
+    "price": 22.99,
+    "stock": 9,
+    "description": "Novela experimental",
+    "authorId": 5,
+    "publisherId": 3,
+    "categoryId": 1
+  },
+  {
+    "id": 9,
+    "title": "Bestiario",
+    "isbn": "978-8420471846",
+    "price": 15.0,
+    "stock": 5,
+    "description": "Cuentos",
+    "authorId": 5,
+    "publisherId": 4,
+    "categoryId": 2
+  },
+  {
+    "id": 10,
+    "title": "Cosmos",
+    "isbn": "978-0345539434",
+    "price": 28.0,
+    "stock": 6,
+    "description": "Divulgación científica",
+    "authorId": 6,
+    "publisherId": 1,
+    "categoryId": 3
+  },
+  {
+    "id": 11,
+    "title": "Un punto azul pálido",
+    "isbn": "978-0345376596",
+    "price": 26.5,
+    "stock": 0,
+    "description": "Ensayo",
+    "authorId": 6,
+    "publisherId": 1,
+    "categoryId": 3
+  },
+  {
+    "id": 12,
+    "title": "Veinte poemas de amor y una canción desesperada",
+    "isbn": "978-8437604107",
+    "price": 12.0,
+    "stock": 13,
+    "description": "Poesía",
+    "authorId": 7,
+    "publisherId": 4,
+    "categoryId": 5
+  }
+]

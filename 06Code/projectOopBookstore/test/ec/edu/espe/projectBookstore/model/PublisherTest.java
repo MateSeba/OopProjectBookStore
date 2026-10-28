@@ -82,7 +82,7 @@ public class PublisherTest {
         System.out.println("setId");
         Publisher instance = new Publisher(10, "Editorial Planeta", "Publicaciones generales");
         instance.setId(500);
-        int expResult = 200;
+        int expResult = 500;
         int result = instance.getId();
         assertEquals(expResult, result);
     }
@@ -92,7 +92,7 @@ public class PublisherTest {
         System.out.println("setName");
         Publisher instance = new Publisher(11, "Santillana", "Textos educativos");
         instance.setName("Pearson");
-        String expResult = "McGraw-Hill";
+        String expResult = "Pearson";
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -102,7 +102,7 @@ public class PublisherTest {
         System.out.println("setDescription");
         Publisher instance = new Publisher(12, "Pearson", "Educacion superior");
         instance.setDescription("Libros de ingenieria");
-        String expResult = "Revistas de ciencia";
+        String expResult = "Libros de ingenieria";
         String result = instance.getDescription();
         assertEquals(expResult, result);
     }
@@ -111,6 +111,9 @@ public class PublisherTest {
     public void testViewBooks() {
         System.out.println("viewBooks");
         Publisher instance = new Publisher(13, "Anaya", "Libros escolares");
+        for (int i = 1; i <= 3; i++) {
+            new Book(i, "Libro " + i, "978-000000000" + i, 10.0f, 5, "Descripcion", null, instance, null);
+        }
         instance.viewBooks();
         int expResult = 3;
         int result = instance.getBooks().size();
@@ -123,7 +126,7 @@ public class PublisherTest {
         Publisher instance = new Publisher(14, "O'Reilly", "Libros de tecnologia");
         Book book = new Book(1, "Clean Code", "978-0132350884", 45.00f, 10, "Libro de software", null, instance, null);
         instance.addBook(book);
-        int expResult = 5;
+        int expResult = 1;
         int result = instance.getBooks().size();
         assertEquals(expResult, result);
     }

@@ -101,7 +101,7 @@ public class CategoryTest {
         System.out.println("setId");
         Category instance = new Category(10, "Ficcion", "Narrativa contemporanea");
         instance.setId(500);
-        int expResult = 200;
+        int expResult = 500;
         int result = instance.getId();
         assertEquals(expResult, result);
     }
@@ -111,7 +111,7 @@ public class CategoryTest {
         System.out.println("setName");
         Category instance = new Category(11, "Historia", "Acontecimientos del siglo XX");
         instance.setName("Biografia");
-        String expResult = "Autobiografia";
+        String expResult = "Biografia";
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -121,7 +121,7 @@ public class CategoryTest {
         System.out.println("setDescription");
         Category instance = new Category(12, "Ciencia", "Fisica y astronomia");
         instance.setDescription("Estudios de la materia");
-        String expResult = "Revistas de divulgacion";
+        String expResult = "Estudios de la materia";
         String result = instance.getDescription();
         assertEquals(expResult, result);
     }

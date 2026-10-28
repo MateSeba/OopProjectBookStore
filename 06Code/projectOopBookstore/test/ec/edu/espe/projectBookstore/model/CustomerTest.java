@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 package ec.edu.espe.projectBookstore.model;
 
 import java.util.ArrayList;
@@ -44,19 +40,13 @@ public class CustomerTest {
     public void tearDown() {
     }
 
-     /**
-     * Test of register method, of class Customer.
-     */
     @Test
     public void testRegister() {
         System.out.println("register");
         assertTrue(customer.register(customers));
         assertEquals(1, customers.size());
     }
- 
-    /**
-     * Test of register method with a duplicate email, of class Customer.
-     */
+
     @Test
     public void testRegisterDuplicateEmail() {
         System.out.println("registerDuplicateEmail");
@@ -65,83 +55,63 @@ public class CustomerTest {
         assertFalse(other.register(customers));
         assertEquals(1, customers.size());
     }
- 
-    /**
-     * Test of login method with correct credentials, of class Customer.
-     */
+    
     @Test
     public void testLoginCorrectCredentials() {
         System.out.println("loginCorrectCredentials");
         customer.register(customers);
         assertSame(customer, Customer.login(customers, "ana@mail.com", "password123"));
     }
- 
-    /**
-     * Test of login method with a wrong password, of class Customer.
-     */
+
     @Test
     public void testLoginWrongPassword() {
         System.out.println("loginWrongPassword");
         customer.register(customers);
         assertNull(Customer.login(customers, "ana@mail.com", "wrongpass1"));
     }
- 
-    /**
-     * Test of login method with a null email, of class Customer.
-     */
+
     @Test
     public void testLoginNullEmail() {
         System.out.println("loginNullEmail");
         customer.register(customers);
         assertNull(Customer.login(customers, null, "password123"));
     }
- 
-    /**
-     * Test of setAge method with an invalid age, of class Customer.
-     */
+
     @Test(expected = IllegalArgumentException.class)
     public void testSetAgeInvalid() {
         System.out.println("setAgeInvalid");
         customer.setAge(15);
     }
-  
-    /**
-     * Test of setPassword method, of class Customer.
-     */
+
     @Test
     public void testSetPassword() {
         System.out.println("setPassword");
         customer.setPassword("newpass123");
-        assertEquals("otherpass1", customer.getPassword());
+        assertEquals("newpass123", customer.getPassword());
     }
- 
-    /**
-     * Test of getName method, of class Customer.
-     */
+
     @Test
     public void testGetName() {
         System.out.println("getName");
-        assertEquals("Maria Lopez", customer.getName());
+        assertEquals("Ana Perez", customer.getName());
     }
- 
-    /**
-     * Test of setAge method, of class Customer.
-     */
+
     @Test
     public void testSetAge() {
         System.out.println("setAge");
         customer.setAge(30);
-        assertEquals(40, customer.getAge());
+        assertEquals(30, customer.getAge());
     }
  
-    /**
-     * Test of login method with an unknown email, of class Customer.
-     */
     @Test
     public void testLoginUnknownEmail() {
         System.out.println("loginUnknownEmail");
         customer.register(customers);
-        assertNotNull(Customer.login(customers, "nobody@mail.com", "password123"));
+        assertNull(Customer.login(customers, "nobody@mail.com", "password123"));
     }
     
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetEmailInvalidFormatIsRejected() {
+        customer.setEmail("not-an-email");
+    }
 }

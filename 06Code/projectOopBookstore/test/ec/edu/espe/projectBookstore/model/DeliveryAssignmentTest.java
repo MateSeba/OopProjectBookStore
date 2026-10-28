@@ -8,6 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * @author Lino Diaz, Brain Training, @ESPE
+ */
 public class DeliveryAssignmentTest {
 
     public DeliveryAssignmentTest() {
@@ -63,7 +66,7 @@ public class DeliveryAssignmentTest {
     @Test
     public void testGetStatus() {
         DeliveryAssignment instance = new DeliveryAssignment(4, null, null, new Date(), "In Transit");
-        String expResult = "Delivered";
+        String expResult = "In Transit";
         String result = instance.getStatus();
         assertEquals(expResult, result);
     }
@@ -72,14 +75,14 @@ public class DeliveryAssignmentTest {
     public void testSetId() {
         DeliveryAssignment instance = new DeliveryAssignment(5, null, null, new Date(), "Pending");
         instance.setId(200);
-        assertEquals(500, instance.getId());
+        assertEquals(200, instance.getId());
     }
 
     @Test
     public void testSetStatus() {
         DeliveryAssignment instance = new DeliveryAssignment(6, null, null, new Date(), "Pending");
         instance.setStatus("Cancelled");
-        assertEquals("cancelled", instance.getStatus());
+        assertEquals("Cancelled", instance.getStatus());
     }
 
     @Test
@@ -99,8 +102,28 @@ public class DeliveryAssignmentTest {
     @Test
     public void testToString() {
         DeliveryAssignment instance = new DeliveryAssignment(9, null, null, new Date(), "Assigned");
-        String expResult = "DeliveryAssignment{id=0, status=NULL}";
+        String expResult = "DeliveryAssignment{id=9, status=Assigned}";
         String result = instance.toString();
         assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testAssignNullDriverDoesNotMarkAsAssigned() {
+        DeliveryAssignment instance = new DeliveryAssignment(10, null, null, new Date(), "Pending");
+        try {
+            instance.assignDriver(null);
+        } catch (IllegalArgumentException | IllegalStateException e) {
+        }
+        assertFalse("Assigned".equals(instance.getStatus()));
+    }
+
+    @Test
+    public void testCompleteDeliveryWithoutDriverIsNotAllowed() {
+        DeliveryAssignment instance = new DeliveryAssignment(11, null, null, new Date(), "Pending");
+        try {
+            instance.completeDelivery();
+        } catch (IllegalArgumentException | IllegalStateException e) {
+        }
+        assertFalse("Completed".equals(instance.getStatus()));
     }
 }

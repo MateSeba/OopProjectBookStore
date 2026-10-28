@@ -82,7 +82,7 @@ public class AuthorTest {
         System.out.println("setId");
         Author instance = new Author(10, "Gabriel Garcia Marquez", "Colombiana", "Premio Nobel");
         instance.setId(500);
-        int expResult = 200;
+        int expResult = 500;
         int result = instance.getId();
         assertEquals(expResult, result);
     }
@@ -92,7 +92,7 @@ public class AuthorTest {
         System.out.println("setName");
         Author instance = new Author(11, "Julio Cortazar", "Argentina", "Escritor");
         instance.setName("Pablo Neruda");
-        String expResult = "Octavio Paz";
+        String expResult = "Pablo Neruda";
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -102,7 +102,7 @@ public class AuthorTest {
         System.out.println("setNationality");
         Author instance = new Author(12, "Mario Vargas Llosa", "Peruana", "Ensayista");
         instance.setNationality("Española");
-        String expResult = "Mexicana";
+        String expResult = "Española";
         String result = instance.getNationality();
         assertEquals(expResult, result);
     }
@@ -112,7 +112,7 @@ public class AuthorTest {
         System.out.println("setBiography");
         Author instance = new Author(13, "Isabel Allende", "Chilena", "Biografía breve");
         instance.setBiography("Novelista del siglo XX");
-        String expResult = "Poeta vanguardista";
+        String expResult = "Novelista del siglo XX";
         String result = instance.getBiography();
         assertEquals(expResult, result);
     }
@@ -123,7 +123,7 @@ public class AuthorTest {
         Author instance = new Author(14, "Jorge Luis Borges", "Argentina", "Escritor");
         Book book = new Book(1, "El Aleph", "978-8420633114", 20.00f, 5, "Cuentos", instance, null, null);
         instance.addBook(book);
-        int expResult = 5;
+        int expResult = 1;
         int result = instance.getBooks().size();
         assertEquals(expResult, result);
     }

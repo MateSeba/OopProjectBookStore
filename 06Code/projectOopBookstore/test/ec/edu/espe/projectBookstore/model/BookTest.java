@@ -73,7 +73,7 @@ public class BookTest {
         System.out.println("setId");
         Book instance = new Book(10, "Cien Anos de Soledad", "978-0307474728", 25.50f, 10, "Realismo magico", null, null, null);
         instance.setId(500);
-        int expResult = 200;
+        int expResult = 500;
         int result = instance.getId();
         assertEquals(expResult, result);
     }
@@ -83,7 +83,7 @@ public class BookTest {
         System.out.println("setTitle");
         Book instance = new Book(11, "Don Quijote", "978-8424115203", 30.00f, 5, "Novela clasica", null, null, null);
         instance.setTitle("Ficciones");
-        String expResult = "El Aleph";
+        String expResult = "Ficciones";
         String result = instance.getTitle();
         assertEquals(expResult, result);
     }
@@ -93,7 +93,7 @@ public class BookTest {
         System.out.println("setIsbn");
         Book instance = new Book(12, "Rayuela", "978-8437604572", 22.99f, 12, "Novela", null, null, null);
         instance.setIsbn("978-0000000000");
-        String expResult = "978-1111111111";
+        String expResult = "978-0000000000";
         String result = instance.getIsbn();
         assertEquals(expResult, result);
     }
@@ -103,7 +103,7 @@ public class BookTest {
         System.out.println("setPrice");
         Book instance = new Book(13, "Pedro Paramo", "978-8437604183", 15.00f, 15, "Ficcion mexicana", null, null, null);
         instance.setPrice(18.50f);
-        float expResult = 25.00f;
+        float expResult = 18.50f;
         float result = instance.getPrice();
         assertEquals(expResult, result, 0.001f);
     }
@@ -113,7 +113,7 @@ public class BookTest {
         System.out.println("updateStock");
         Book instance = new Book(14, "La Colmena", "978-8437600925", 18.00f, 10, "Novela espanola", null, null, null);
         instance.updateStock(5);
-        int expResult = 10;
+        int expResult = 15;
         int result = instance.getStock();
         assertEquals(expResult, result);
     }
@@ -122,8 +122,35 @@ public class BookTest {
     public void testGetInfo() {
         System.out.println("getInfo");
         Book instance = new Book(15, "El Tunel", "978-8437601502", 14.00f, 7, "Ficcion psicologica", null, null, null);
-        String expResult = "Title: Ninguno | ISBN: 000 | Price: $0.0 | Stock: 0 | Author: N/A | Publisher: N/A | Category: N/A";
+        String expResult = "Title: El Tunel | ISBN: 978-8437601502 | Price: $14.0 | Stock: 7 | Author: N/A | Publisher: N/A | Category: N/A";
         String result = instance.getInfo();
         assertEquals(expResult, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructorRejectsNegativeStock() {
+        new Book(20, "Title", "978-0000000001", 10.0f, -5, "Desc", null, null, null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetPriceNegativeIsRejected() {
+        Book instance = new Book(21, "Rayuela", "978-8437604572", 22.99f, 12, "Novela", null, null, null);
+        instance.setPrice(-5.0f);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testUpdateStockBelowZeroIsRejected() {
+        Book instance = new Book(22, "Rayuela", "978-8437604572", 22.99f, 10, "Novela", null, null, null);
+        instance.updateStock(-20);
+    }
+
+    @Test
+    public void testSetAuthorKeepsAuthorBookListsInSync() {
+        Author first = new Author(1, "Cervantes", "Española", "Bio");
+        Author second = new Author(2, "Borges", "Argentina", "Bio");
+        Book instance = new Book(23, "Title", "978-0000000001", 10.0f, 5, "Desc", first, null, null);
+        instance.setAuthor(second);
+        assertTrue(second.getBooks().contains(instance));
+        assertFalse(first.getBooks().contains(instance));
     }
 }

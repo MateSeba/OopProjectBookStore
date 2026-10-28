@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Ana Pérez",
+    "email": "ana.perez@mail.com",
+    "phone": "0991112233",
+    "age": 25,
+    "password": "password123",
+    "address": {
+      "mainStreet": "Av. General Rumiñahui",
+      "secondaryStreet": "Calle Sucre",
+      "sector": "Sangolquí",
+      "reference": "Casa blanca de dos pisos"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Luis Andrade",
+    "email": "luis.andrade@mail.com",
+    "phone": "0984445566",
+    "age": 31,
+    "password": "luis2026pass",
+    "address": {
+      "mainStreet": "Av. Amazonas",
+      "secondaryStreet": "Calle Veintimilla",
+      "sector": "Quito Centro",
+      "reference": "Edificio azul"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Sofía Ramírez",
+    "email": "sofia.ramirez@mail.com",
+    "phone": "0997778899",
+    "age": 28,
+    "password": "sofia12345",
+    "address": {
+      "mainStreet": "Av. Los Shyris",
+      "secondaryStreet": "Calle Holanda",
+      "sector": "Quito Norte",
+      "reference": "Junto al parque"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Diego Vélez",
+    "email": "diego.velez@mail.com",
+    "phone": "0983334455",
+    "age": 40,
+    "password": "diego9876",
+    "address": {
+      "mainStreet": "Calle Bolívar",
+      "secondaryStreet": "Calle Montalvo",
+      "sector": "Cumbayá",
+      "reference": "Frente a la panadería"
+    }
+  }
+]

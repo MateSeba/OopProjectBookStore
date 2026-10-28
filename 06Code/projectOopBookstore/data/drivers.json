@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "id": "D-01",
+    "name": "Carlos Pérez",
+    "vehiclePlate": "PBA-1234",
+    "phone": "0991234567",
+    "status": "Available",
+    "currentLocation": {
+      "mainStreet": "Av. General Rumiñahui",
+      "secondaryStreet": "Av. Abdón Calderón",
+      "sector": "Sangolquí",
+      "reference": "Frente al parque"
+    }
+  },
+  {
+    "id": "D-02",
+    "name": "Luis Torres",
+    "vehiclePlate": "PCD-5678",
+    "phone": "0987654321",
+    "status": "Available",
+    "currentLocation": {
+      "mainStreet": "Av. Amazonas",
+      "secondaryStreet": "Av. Naciones Unidas",
+      "sector": "Quito Norte",
+      "reference": "Cerca de La Carolina"
+    }
+  },
+  {
+    "id": "D-03",
+    "name": "María Gómez",
+    "vehiclePlate": "PEF-9012",
+    "phone": "0981112233",
+    "status": "Available",
+    "currentLocation": {
+      "mainStreet": "Av. Interoceánica",
+      "secondaryStreet": "Av. Oswaldo Guayasamín",
+      "sector": "Cumbayá",
+      "reference": "Junto al redondel"
+    }
+  }
+]

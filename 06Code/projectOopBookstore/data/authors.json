@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Gabriel García Márquez",
+    "nationality": "Colombiana",
+    "biography": "Premio Nobel de Literatura 1982"
+  },
+  {
+    "id": 2,
+    "name": "Mario Vargas Llosa",
+    "nationality": "Peruana",
+    "biography": "Novelista y ensayista, Premio Nobel 2010"
+  },
+  {
+    "id": 3,
+    "name": "Isabel Allende",
+    "nationality": "Chilena",
+    "biography": "Autora de La casa de los espíritus"
+  },
+  {
+    "id": 4,
+    "name": "Jorge Luis Borges",
+    "nationality": "Argentina",
+    "biography": "Poeta, ensayista y cuentista"
+  },
+  {
+    "id": 5,
+    "name": "Julio Cortázar",
+    "nationality": "Argentina",
+    "biography": "Autor de Rayuela y cuentos fantásticos"
+  },
+  {
+    "id": 6,
+    "name": "Carl Sagan",
+    "nationality": "Estadounidense",
+    "biography": "Astrónomo y divulgador científico"
+  },
+  {
+    "id": 7,
+    "name": "Pablo Neruda",
+    "nationality": "Chilena",
+    "biography": "Poeta, Premio Nobel de Literatura 1971"
+  }
+]

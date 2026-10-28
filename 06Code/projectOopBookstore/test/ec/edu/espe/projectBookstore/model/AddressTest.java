@@ -7,6 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * @author Lino Diaz, Brain Training, @ESPE
+ */
 public class AddressTest {
 
     public AddressTest() {
@@ -62,7 +65,7 @@ public class AddressTest {
     @Test
     public void testGetSecondaryStreet() {
         Address instance = new Address("Av. Colon", "10 de Agosto", "Centro", "Diagonal al farmacia");
-        String expResult = "Orellana";
+        String expResult = "10 de Agosto";
         String result = instance.getSecondaryStreet();
         assertEquals(expResult, result);
     }
@@ -70,7 +73,7 @@ public class AddressTest {
     @Test
     public void testGetReference() {
         Address instance = new Address("Av. Patria", "12 de Octubre", "La Mariscal", "Edificio Azul");
-        String expResult = "Casa Blanca";
+        String expResult = "Edificio Azul";
         String result = instance.getReference();
         assertEquals(expResult, result);
     }
@@ -79,27 +82,27 @@ public class AddressTest {
     public void testSetMainStreet() {
         Address instance = new Address("Calle A", "Calle B", "Valle", "Km 5");
         instance.setMainStreet("Calle Principal");
-        assertEquals("Calle Antigua", instance.getMainStreet());
+        assertEquals("Calle Principal", instance.getMainStreet());
     }
 
     @Test
     public void testSetSecondaryStreet() {
         Address instance = new Address("Calle A", "Calle B", "Valle", "Km 5");
         instance.setSecondaryStreet("Calle Secundaria");
-        assertEquals("Calle B", instance.getSecondaryStreet());
+        assertEquals("Calle Secundaria", instance.getSecondaryStreet());
     }
 
     @Test
     public void testSetSector() {
         Address instance = new Address("Calle A", "Calle B", "Sur", "Km 5");
         instance.setSector("Norte");
-        assertEquals("Centro", instance.getSector());
+        assertEquals("Norte", instance.getSector());
     }
 
     @Test
     public void testToString() {
         Address instance = new Address("Av. Napo", "Upano", "Sur", "Parada de bus");
-        String expResult = "Address{mainStreet=Desconocida, sector=Ninguno}";
+        String expResult = "Address{mainStreet=Av. Napo, sector=Sur}";
         String result = instance.toString();
         assertEquals(expResult, result);
     }

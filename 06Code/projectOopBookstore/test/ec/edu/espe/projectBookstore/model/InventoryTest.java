@@ -8,6 +8,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * @author Lino Diaz, Brain Training, @ESPE
+ */
 public class InventoryTest {
 
     public InventoryTest() {
@@ -78,7 +81,7 @@ public class InventoryTest {
         Book book = new Book(10, "El Tunel", "978-8437601502", 14.00f, 15, "Ficcion psicologica", null, null, null);
         Date today = new Date();
         Inventory instance = new Inventory(today, 5, book);
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.checkReorderStatus();
         assertEquals(expResult, result);
     }
@@ -90,7 +93,7 @@ public class InventoryTest {
         Date today = new Date();
         Inventory instance = new Inventory(today, 5, book);
         instance.setReorderLevel(10);
-        int expResult = 25;
+        int expResult = 10;
         int result = instance.getReorderLevel();
         assertEquals(expResult, result);
     }
@@ -103,7 +106,7 @@ public class InventoryTest {
         Date newDate = new Date(today.getTime() + 10000);
         Inventory instance = new Inventory(today, 5, book);
         instance.setLastRestockDate(newDate);
-        Date expResult = today;
+        Date expResult = newDate;
         Date result = instance.getLastRestockDate();
         assertEquals(expResult, result);
     }
@@ -116,7 +119,7 @@ public class InventoryTest {
         Date today = new Date();
         Inventory instance = new Inventory(today, 5, book1);
         instance.setBook(book2);
-        Book expResult = book1;
+        Book expResult = book2;
         Book result = instance.getBook();
         assertEquals(expResult, result);
     }
@@ -128,7 +131,7 @@ public class InventoryTest {
         Date today = new Date();
         Inventory instance = new Inventory(today, 5, book);
         instance.updateStock(5);
-        int expResult = 10;
+        int expResult = 15;
         int result = instance.getBook().getStock();
         assertEquals(expResult, result);
     }
@@ -139,8 +142,15 @@ public class InventoryTest {
         Book book = new Book(16, "Aura", "978-8437601234", 12.00f, 6, "Fantasia", null, null, null);
         Date today = new Date();
         Inventory instance = new Inventory(today, 2, book);
-        String expResult = "Inventory{lastRestockDate=null, reorderLevel=0, book=null}";
+        String expResult = "Inventory{lastRestockDate=" + today + ", reorderLevel=2, book=" + book + "}";
         String result = instance.toString();
         assertEquals(expResult, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetReorderLevelNegativeIsRejected() {
+        Book book = new Book(30, "Aura", "978-8437601234", 12.00f, 6, "Fantasia", null, null, null);
+        Inventory instance = new Inventory(new Date(), 5, book);
+        instance.setReorderLevel(-3);
     }
 }

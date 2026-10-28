@@ -8,6 +8,10 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ *
+ * @author Andres
+ */
 public class PaymentTest {
     
     public PaymentTest() {
@@ -65,20 +69,20 @@ public class PaymentTest {
     public void testSetId() {
         Payment instance = new Payment(4, 15.00f, new Date(), "Tarjeta", "Pending", "REF-105");
         instance.setId(500);
-        assertEquals(200, instance.getId());
+        assertEquals(500, instance.getId());
     }
 
     @Test
     public void testSetAmount() {
         Payment instance = new Payment(5, 10.0f, new Date(), "Tarjeta", "Pending", "REF-106");
         instance.setAmount(150.0f);
-        assertEquals(100.0f, instance.getAmount(), 0.001f);
+        assertEquals(150.0f, instance.getAmount(), 0.001f);
     }
 
     @Test
     public void testGetPaymentMethod() {
         Payment instance = new Payment(6, 10.0f, new Date(), "Transferencia", "Pending", "REF-107");
-        String expResult = "Efectivo";
+        String expResult = "Transferencia";
         String result = instance.getPaymentMethod();
         assertEquals(expResult, result);
     }
@@ -87,7 +91,7 @@ public class PaymentTest {
     public void testSetStatus() {
         Payment instance = new Payment(7, 10.0f, new Date(), "Tarjeta", "Pending", "REF-108");
         instance.setStatus("Rejected");
-        assertEquals("Approved", instance.getStatus());
+        assertEquals("Rejected", instance.getStatus());
     }
 
     @Test
@@ -102,6 +106,24 @@ public class PaymentTest {
     public void testSetReferenceNumber() {
         Payment instance = new Payment(9, 25.50f, new Date(), "Tarjeta", "Pending", "REF-000");
         instance.setReferenceNumber("REF-777");
-        assertEquals("REF-111", instance.getReferenceNumber());
+        assertEquals("REF-777", instance.getReferenceNumber());
+    }
+
+    @Test
+    public void testProcessInvalidPaymentIsNotProcessed() {
+        Payment instance = new Payment(10, 0f, new Date(), "Tarjeta", "Pending", "");
+        assertFalse(instance.validatePayment());
+        try {
+            instance.processPayment();
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            // rejecting with an exception is also acceptable
+        }
+        assertEquals("Pending", instance.getStatus());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetAmountNegativeIsRejected() {
+        Payment instance = new Payment(11, 10.0f, new Date(), "Tarjeta", "Pending", "REF-200");
+        instance.setAmount(-10.0f);
     }
 }

@@ -1,1 +1,182 @@
-[]
+[
+  {
+    "id": 1,
+    "date": 1792491300000,
+    "total": 73.99,
+    "status": "Delivered",
+    "paymentMethod": "Tarjeta",
+    "customerId": 1,
+    "shippingAddress": {
+      "mainStreet": "Av. General Rumiñahui",
+      "secondaryStreet": "Calle Sucre",
+      "sector": "Sangolquí",
+      "reference": "Casa blanca de dos pisos"
+    },
+    "details": [
+      {
+        "id": 1,
+        "bookId": 1,
+        "quantity": 2,
+        "unitPrice": 25.5
+      },
+      {
+        "id": 2,
+        "bookId": 8,
+        "quantity": 1,
+        "unitPrice": 22.99
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "date": 1792595700000,
+    "total": 81.0,
+    "status": "Delivered",
+    "paymentMethod": "Efectivo",
+    "customerId": 2,
+    "shippingAddress": {
+      "mainStreet": "Av. Amazonas",
+      "secondaryStreet": "Calle Veintimilla",
+      "sector": "Quito Centro",
+      "reference": "Edificio azul"
+    },
+    "details": [
+      {
+        "id": 1,
+        "bookId": 10,
+        "quantity": 1,
+        "unitPrice": 28.0
+      },
+      {
+        "id": 2,
+        "bookId": 11,
+        "quantity": 2,
+        "unitPrice": 26.5
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "date": 1792660500000,
+    "total": 108.5,
+    "status": "Delivered",
+    "paymentMethod": "Transferencia",
+    "customerId": 3,
+    "shippingAddress": {
+      "mainStreet": "Av. Los Shyris",
+      "secondaryStreet": "Calle Holanda",
+      "sector": "Quito Norte",
+      "reference": "Junto al parque"
+    },
+    "details": [
+      {
+        "id": 1,
+        "bookId": 6,
+        "quantity": 2,
+        "unitPrice": 19.0
+      },
+      {
+        "id": 2,
+        "bookId": 7,
+        "quantity": 3,
+        "unitPrice": 18.5
+      },
+      {
+        "id": 3,
+        "bookId": 9,
+        "quantity": 1,
+        "unitPrice": 15.0
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "date": 1792775700000,
+    "total": 69.8,
+    "status": "Delivered",
+    "paymentMethod": "Tarjeta",
+    "customerId": 4,
+    "shippingAddress": {
+      "mainStreet": "Calle Bolívar",
+      "secondaryStreet": "Calle Montalvo",
+      "sector": "Cumbayá",
+      "reference": "Frente a la panadería"
+    },
+    "details": [
+      {
+        "id": 1,
+        "bookId": 3,
+        "quantity": 1,
+        "unitPrice": 20.0
+      },
+      {
+        "id": 2,
+        "bookId": 4,
+        "quantity": 2,
+        "unitPrice": 24.9
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "date": 1792926900000,
+    "total": 89.25,
+    "status": "Confirmed",
+    "paymentMethod": "Efectivo",
+    "customerId": 1,
+    "shippingAddress": {
+      "mainStreet": "Av. General Rumiñahui",
+      "secondaryStreet": "Calle Sucre",
+      "sector": "Sangolquí",
+      "reference": "Casa blanca de dos pisos"
+    },
+    "details": [
+      {
+        "id": 1,
+        "bookId": 5,
+        "quantity": 3,
+        "unitPrice": 21.75
+      },
+      {
+        "id": 2,
+        "bookId": 12,
+        "quantity": 2,
+        "unitPrice": 12.0
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "date": 1793110500000,
+    "total": 104.5,
+    "status": "Confirmed",
+    "paymentMethod": "Tarjeta",
+    "customerId": 3,
+    "shippingAddress": {
+      "mainStreet": "Av. Los Shyris",
+      "secondaryStreet": "Calle Holanda",
+      "sector": "Quito Norte",
+      "reference": "Junto al parque"
+    },
+    "details": [
+      {
+        "id": 1,
+        "bookId": 2,
+        "quantity": 1,
+        "unitPrice": 22.0
+      },
+      {
+        "id": 2,
+        "bookId": 10,
+        "quantity": 2,
+        "unitPrice": 28.0
+      },
+      {
+        "id": 3,
+        "bookId": 11,
+        "quantity": 1,
+        "unitPrice": 26.5
+      }
+    ]
+  }
+]
