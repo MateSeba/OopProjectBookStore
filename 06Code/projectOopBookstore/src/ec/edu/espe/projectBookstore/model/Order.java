@@ -17,6 +17,7 @@ public class Order {
     private Address shippingAddress;
     private String status;
     private String paymentMethod;
+    private Customer customer;
 
     public Order(int id, Date orderDate, float total, Address shippingAddress, String status, String paymentMethod) {
         this.id = id;
@@ -152,6 +153,14 @@ public class Order {
      */
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
