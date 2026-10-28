@@ -29,14 +29,15 @@ public class Main {
         int option;
         do {
             showMenu("WELCOME TO BOOKSTORE SYSTEM", "Exit System",
-                    "Administrator Menu", "Customer Menu", "Reports (CSV)");
+                    "Admin Menu", "Customer Access", "Delivery Driver Menu", "Reports (CSV)");
             option = readInt("Choose an option: ");
             System.out.println();
 
             switch (option) {
                 case 1 -> adminMenu();
                 case 2 -> customerAccessMenu();
-                case 3 -> reportsMenu();
+                case 3 -> deliveryDriverMenu();
+                case 4 -> reportsMenu();
                 case 0 -> System.out.println("Goodbye! Thank you for using Bookstore System.");
                 default -> System.out.println("Invalid option. Please choose a valid number.");
             }
@@ -92,7 +93,7 @@ public class Main {
                 default -> System.out.println("Invalid option. Please choose a valid number.");
             }
             data.save();
-        } while (option != 0);
+        } while (option != 0 && current == null);
     }
 
     private static void customerMenu() {
@@ -115,6 +116,25 @@ public class Main {
                 case 7 -> trackOrder();
                 case 8 -> listMyOrders();
                 case 0 -> System.out.println("Logging out...");
+                default -> System.out.println("Invalid option. Please choose a valid number.");
+            }
+            data.save();
+        } while (option != 0);
+    }
+
+    private static void deliveryDriverMenu() {
+        int option;
+        do {
+            showMenu("DELIVERY DRIVER MENU", "Back",
+                    "View assigned deliveries", "View delivery address", "Update delivery status");
+            option = readInt("Choose a driver option: ");
+            System.out.println();
+
+            switch (option) {
+                case 1 -> viewAssignedDeliveries();
+                case 2 -> viewDeliveryAddress();
+                case 3 -> updateDeliveryStatus();
+                case 0 -> System.out.println("Returning to Main Menu...");
                 default -> System.out.println("Invalid option. Please choose a valid number.");
             }
             data.save();
@@ -161,6 +181,94 @@ public class Main {
 
     private static void printSaved(Path path) {
         System.out.println("Report saved: " + path.toAbsolutePath());
+    }
+
+    // ============================== DELIVERY DRIVER OPERATIONS ==============================
+
+    private static void viewAssignedDeliveries() {
+        System.out.println("--- Assigned Deliveries ---");
+        if (data.deliveryAssignments.isEmpty()) {
+            System.out.println("No deliveries assigned at the moment.");
+            return;
+        }
+
+        data.deliveryAssignments.forEach(da -> {
+            String driverName = da.getDriver() != null ? da.getDriver().getName() : "Unassigned";
+            int orderId = da.getOrder() != null ? da.getOrder().getId() : -1;
+            System.out.println("Assignment ID: [" + da.getId() + "] | Order ID: " + orderId 
+                    + " | Driver: " + driverName + " | Status: " + da.getStatus());
+        });
+    }
+
+    private static void viewDeliveryAddress() {
+        System.out.println("--- View Delivery Address ---");
+        if (data.deliveryAssignments.isEmpty()) {
+            System.out.println("No delivery assignments available.");
+            return;
+        }
+
+        int assignmentId = readInt("Enter Assignment ID: ");
+        DeliveryAssignment assignment = findAssignmentById(assignmentId);
+
+        if (assignment == null) {
+            System.out.println("Error: Delivery Assignment ID not found.");
+            return;
+        }
+
+        if (assignment.getOrder() != null && assignment.getOrder().getShippingAddress() != null) {
+            Address addr = assignment.getOrder().getShippingAddress();
+            System.out.println("Delivery Address for Order #" + assignment.getOrder().getId() + ":");
+            System.out.println(" - " + addr.getFormattedAddress());
+        } else {
+            System.out.println("No address associated with this order.");
+        }
+    }
+
+    private static void updateDeliveryStatus() {
+        System.out.println("--- Update Delivery Status ---");
+        if (data.deliveryAssignments.isEmpty()) {
+            System.out.println("No delivery assignments available.");
+            return;
+        }
+
+        int assignmentId = readInt("Enter Assignment ID to update: ");
+        DeliveryAssignment assignment = findAssignmentById(assignmentId);
+
+        if (assignment == null) {
+            System.out.println("Error: Delivery Assignment ID not found.");
+            return;
+        }
+
+        System.out.println("Current status: " + assignment.getStatus());
+        System.out.println("Select new status:");
+        System.out.println("1. In Transit");
+        System.out.println("2. Delivered");
+        System.out.println("3. Failed / Cancelled");
+
+        int choice = readInt("Choice: ");
+        String newStatus = switch (choice) {
+            case 1 -> "In Transit";
+            case 2 -> "Delivered";
+            case 3 -> "Failed";
+            default -> null;
+        };
+
+        if (newStatus != null) {
+            assignment.setStatus(newStatus);
+            if (assignment.getOrder() != null) {
+                assignment.getOrder().setStatus(newStatus);
+            }
+            System.out.println("Delivery status updated successfully to: " + newStatus);
+        } else {
+            System.out.println("Invalid selection. Status unchanged.");
+        }
+    }
+
+    private static DeliveryAssignment findAssignmentById(int id) {
+        return data.deliveryAssignments.stream()
+                .filter(da -> da.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 
     // ============================== ADMIN: CATALOG DATA ==============================
@@ -295,7 +403,6 @@ public class Main {
         book.setPrice(price);
         System.out.println("Price updated: [" + book.getId() + "] " + book.getInfo());
     }
-
 
     private static void listAllOrders() {
         System.out.println("--- All orders ---");
@@ -557,10 +664,6 @@ public class Main {
         }
         mine.forEach(Main::printOrder);
     }
-
-
-
-
 
     // ============================== SHARED LISTINGS ==============================
 
