@@ -40,5 +40,11 @@
     "name": "Pablo Neruda",
     "nationality": "Chilena",
     "biography": "Poeta, Premio Nobel de Literatura 1971"
+  },
+  {
+    "id": 8,
+    "name": "George Orwell",
+    "nationality": "Britanica",
+    "biography": "A los dos años fue a vivir con su mama a Inglaterra"
   }
 ]
